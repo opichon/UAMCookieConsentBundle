@@ -7,6 +7,7 @@ use Twig_Extension;
 use Twig_SimpleFunction;
 use Symfony\Component\HttpFoundation\RequestStack;
 use UAM\CookieConsent\CookieConsentBundle\Renderer\RendererInterface;
+
 class CookieConsentExtension extends Twig_Extension
 {
     protected $request_stack;
