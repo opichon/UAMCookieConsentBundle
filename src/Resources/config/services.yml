@@ -1,0 +1,15 @@
+parameters:
+    uam.cookie_consent.policy.class: UAM\CookieConsent\CookieConsentBundle\Policy\DefaultPolicy
+
+services:
+    uam.cookie_consent.policy:
+        class: %uam.cookie_consent.policy.class%
+        arguments:
+            - "@service_container"
+        public: false
+
+    uam.cookie_consent.twig.extension:
+        class: UAM\CookieConsent\CookieConsentBundle\Twig\Extension\CookieConsentExtension
+        arguments: ["@request_stack", "@uam.cookie_consent.policy"]
+        tags:
+            - { name: twig.extension }
