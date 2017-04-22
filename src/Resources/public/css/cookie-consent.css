@@ -1,4 +1,4 @@
-.cookie-policy {
+.cookie-consent {
 	background: #000;
 	bottom: 0;
 	display: none;
@@ -11,7 +11,7 @@
 	width: 100%;
 }
 
-.cookie-policy button.close {
+.cookie-consent button.close {
 	font-size: 100%;
 	font-weight: normal;
 	margin-top: 3px;
@@ -19,11 +19,11 @@
 	text-shadow: none;
 }
 
-.cookie-policy button.close:hover {
+.cookie-consent button.close:hover {
 	opacity: 0.9;
 }
 
-.cookie-policy .dismiss {
+.cookie-consent .dismiss {
 	color: #fff;
 	font-size: 100%;
 	text-transform: uppercase;

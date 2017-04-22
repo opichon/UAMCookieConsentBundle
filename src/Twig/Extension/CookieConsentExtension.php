@@ -2,6 +2,7 @@
 
 namespace UAM\CookieConsent\CookieConsentBundle\Twig\Extension;
 
+use Twig_Environment;
 use Twig_Extension;
 use Twig_SimpleFunction;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -34,13 +35,14 @@ class CookieConsentExtension extends Twig_Extension
                 'uam_cookie_consent',
                 array($this, 'cookie_consent'),
                 array(
+                    'needs_environment' => true,
                     'is_safe' => array('html'),
                 )
             ),
         );
     }
 
-    public function cookie_consent(array $options = array())
+    public function cookie_consent(Twig_environment $env, array $options = array())
     {
         if (!$this->getCurrentRequest()->cookies->has('uam_cookie_consent')) {
             return $this->getRenderer()->render($options);
