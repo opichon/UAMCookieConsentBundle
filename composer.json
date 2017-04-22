@@ -17,7 +17,7 @@
 
 	},
 	"autoload": {
-		"psr-4": { "UAM\\CookieConsent\\CookieConsentBundle\\": "" }
+		"psr-4": { "UAM\\CookieConsent\\CookieConsentBundle\\": "src" }
 	},
 	"extra": {
 		"branch-alias": {
