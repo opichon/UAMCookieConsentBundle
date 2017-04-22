@@ -5,7 +5,6 @@ namespace UAM\CookieConsent\CookieConsentBundle\Twig\Extension;
 use Twig_Extension;
 use Twig_SimpleFunction;
 use Symfony\Component\HttpFoundation\RequestStack;
-use UAM\CookieConsent\CookieConsentBundle\Policy\DefaultPolicy;
 
 class CookieConsentExtension extends Twig_Extension
 {
