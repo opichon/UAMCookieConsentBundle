@@ -1,0 +1,10 @@
+{% trans_default_domain "uam-cookie-consent" %}
+
+<div class="cookie-policy"
+	data-cookie-name="{{ cookie_name }}"
+	data-cookie-expiry="{{ cookie_expiry }}">
+   	<button type="button" class="close" aria-label="{% trans %}cookie.dismiss{% endtrans %}">
+   		<span aria-hidden="true" class="dismiss">{% trans %}cookie.dismiss{% endtrans %}&nbsp;<i class="fa fa-times"></i></span>
+    </button>
+    {% trans %}cookie.message{% endtrans %}
+</div>

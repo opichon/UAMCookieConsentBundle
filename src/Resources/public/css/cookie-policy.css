@@ -1,0 +1,30 @@
+.cookie-policy {
+	background: #000;
+	bottom: 0;
+	display: none;
+	color: #fff;
+	font-size: 100%;
+	opacity: 0.75;
+	padding: 10px;
+	position: fixed;
+	left: 0;
+	width: 100%;
+}
+
+.cookie-policy button.close {
+	font-size: 100%;
+	font-weight: normal;
+	margin-top: 3px;
+	opacity: 0.75;
+	text-shadow: none;
+}
+
+.cookie-policy button.close:hover {
+	opacity: 0.9;
+}
+
+.cookie-policy .dismiss {
+	color: #fff;
+	font-size: 100%;
+	text-transform: uppercase;
+}
