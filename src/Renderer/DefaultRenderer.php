@@ -1,11 +1,11 @@
 <?php
 
-namespace UAM\CookieConsent\CookieConsentBundle\Policy;
+namespace UAM\CookieConsent\CookieConsentBundle\Renderer;
 
 use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class DefaultPolicy
+class DefaultRenderer implements RendererInterface
 {
     use ContainerAwareTrait;
 
@@ -45,7 +45,7 @@ class DefaultPolicy
     {
         return array(
             'cookie_name' => $this->container->getParameter('uam.cookie_consent.cookie_name'),
-            'cookie_expiry' => $this->container->getparameter('uam.cookie_consent.cookie_expiry'),
+            'cookie_expiry' => $this->container->getParameter('uam.cookie_consent.cookie_expiry'),
         );
     }
 

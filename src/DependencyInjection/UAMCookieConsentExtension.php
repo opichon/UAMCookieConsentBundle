@@ -34,16 +34,11 @@ class UAMCookieConsentExtension extends Extension implements PrependExtensionInt
         $configs = $container->getExtensionConfig($this->getAlias());
         $config = $this->processConfiguration(new Configuration(), $configs);
 
-        // Configure Twig if TwigBundle is activated and the option
-        if (true === isset($bundles['TwigBundle'])) {
-            $this->configureTwigBundle($container);
-        }
-
         if (true === isset($bundles['AsseticBundle'])) {
             $this->configureAsseticAssets($container, $config);
         }
 
-        if (true === isset($bundles['MabaWebpaclBundle'])) {
+        if (true === isset($bundles['MabaWebpackBundle'])) {
             $this->configureMabaWebpackBundle($container, $config);
         }
     }
@@ -76,7 +71,7 @@ class UAMCookieConsentExtension extends Extension implements PrependExtensionInt
             array(
                 'aliases' => array(
                     'additional' => array(
-                        'uam_cookie_consent' => '%kernel.root_dir%/../vendor/uam/cookie-consent-bundle/Resources/public',
+                        'uam_cookie_consent' => '%kernel.root_dir%/../vendor/uam/cookie-consent-bundle/src/Resources/public',
                     ),
                 ),
             )

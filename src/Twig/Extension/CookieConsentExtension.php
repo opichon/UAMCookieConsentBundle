@@ -5,18 +5,18 @@ namespace UAM\CookieConsent\CookieConsentBundle\Twig\Extension;
 use Twig_Extension;
 use Twig_SimpleFunction;
 use Symfony\Component\HttpFoundation\RequestStack;
-
+use UAM\CookieConsent\CookieConsentBundle\Renderer\RendererInterface;
 class CookieConsentExtension extends Twig_Extension
 {
     protected $request_stack;
 
-    protected $policy;
+    protected $renderer;
 
-    public function __construct(RequestStack $request_stack, PolicyInterface $policy)
+    public function __construct(RequestStack $request_stack, RendererInterface $renderer)
     {
         $this->request_stack = $request_stack;
 
-        $this->policy = $policy;
+        $this->renderer = $renderer;
     }
 
     public function getName()
@@ -43,13 +43,13 @@ class CookieConsentExtension extends Twig_Extension
     public function cookie_consent(array $options = array())
     {
         if (!$this->getCurrentRequest()->cookies->has('uam_cookie_consent')) {
-            return $this->getPolicy()->render($options);
+            return $this->getRenderer()->render($options);
         }
     }
 
-    protected function getPolicy()
+    protected function getRenderer()
     {
-        return $this->policy;
+        return $this->renderer;
     }
 
     protected function getRequestStack()

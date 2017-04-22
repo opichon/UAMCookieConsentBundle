@@ -16,21 +16,19 @@ class Configuration implements ConfigurationInterface
         $rootNode = $treeBuilder->root('uam_cookie_consent');
 
         $rootNode
+            ->canBeDisabled()
             ->children()
-                ->canBeDisabled()
-                ->children()
-                    ->scalarNode('cookie_name')
-                        ->cannotBeEmpty()
-                        ->defaultValue('uam_cookie_consent')
-                    ->end()
-                    ->scalarNode('cookie_expiry')
-                        ->cannotBeEmpty()
-                        ->defaultValue(365)
-                    ->end()
-                    ->scalarNode('template')
-                        ->cannotBeEmpty()
-                        ->defaultValue('UAMCookieConsentBundle::cookie_consent.html.twig')
-                    ->end()
+                ->scalarNode('cookie_name')
+                    ->cannotBeEmpty()
+                    ->defaultValue('uam_cookie_consent')
+                ->end()
+                ->scalarNode('cookie_expiry')
+                    ->cannotBeEmpty()
+                    ->defaultValue(365)
+                ->end()
+                ->scalarNode('template')
+                    ->cannotBeEmpty()
+                    ->defaultValue('UAMCookieConsentBundle::cookie_consent.html.twig')
                 ->end()
             ->end();
 
