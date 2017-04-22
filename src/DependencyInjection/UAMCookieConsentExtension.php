@@ -76,7 +76,7 @@ class UAMCookieConsentExtension extends Extension implements PrependExtensionInt
             array(
                 'aliases' => array(
                     'additional' => array(
-                        'uam_cookie_consent': "%kernel.root_dir%/../vendor/uam/cookie-consent/Resources/public"
+                        'uam_cookie_consent' => "%kernel.root_dir%/../vendor/uam/cookie-consent-bundle/Resources/public",
                     )
                 ),
             )
