@@ -32,7 +32,7 @@ class Configuration implements ConfigurationInterface
                         ->defaultValue('UAMCookieConsentBundle::cookie_consent.html.twig')
                     ->end()
                 ->end()
-            ->end()
+            ->end();
 
         return $treeBuilder;
     }
