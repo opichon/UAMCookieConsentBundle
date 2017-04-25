@@ -1,30 +1,33 @@
-(function( factory ) {
- 	if ( typeof define === "function" && define.amd ) {
-        define([ "jQuery" ], factory );
-    } else if (typeof module === "object" && module.exports) {
-		module.exports = factory( require( jquery ) );
-    } else {
-        factory( global );
-    }
-}( function( $ ) {
-    $.fn.cookie_consent = function () {
-		var $this = $( this ),
-			button = $( "button.close", $this );
+(function() {
+	var plugin = function( $ ) {
+		var warning = $( ".cookie-consent" ),
+			button = $( "button.close", warning );
 
-		$this.show();
+		warning.show();
 
 		button.click (function() {
-			$this.hide();
+			warning.hide();
 
 			var expiry = new Date();
 
-			expiry.setTime( expiry.getTime() + ( $this.data( "cookie-expiry" ) * 1000 * 60 * 60 * 24 ) );
+			expiry.setTime(expiry.getTime() + (warning.data( "cookie-expiry" ) * 1000 * 60 * 60 * 24));
 
-			document.cookie = $this.data( "cookie-name" ) + "=1; expires=" + expiry.toGMTString();
+			document.cookie = warning.data( "cookie-name" ) + "=1; expires=" + expiry.toGMTString();
 		});
-    };
+	};
 
-    $( document ).ready( function() {
-    	$( ".cookie-consent" ).cookie_consent();
-    });
-}));
+	if ( typeof define === 'function' && define.amd ) {
+		define(
+			"cookie_consent",
+			[ "jquery" ],
+			function( $ ) {
+				return plugin( $ );
+			}
+		);
+
+		require([ "cookie_consent" ]);
+	} else {
+		plugin( jQuery );
+	}
+}());
+
