@@ -4,7 +4,6 @@
             var warning = $( ".cookie-consent" ),
                 button = $( "button.close", warning );
 
-               console.log( "cookie consent" );
             warning.show();
 
             button.click (function() {
