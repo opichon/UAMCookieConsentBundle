@@ -10,6 +10,6 @@ services:
 
     uam.cookie_consent.twig.extension:
         class: UAM\CookieConsent\CookieConsentBundle\Twig\Extension\CookieConsentExtension
-        arguments: ["@request_stack", "@uam.cookie_consent.renderer"]
+        arguments: ["@uam.cookie_consent.renderer"]
         tags:
             - { name: twig.extension }

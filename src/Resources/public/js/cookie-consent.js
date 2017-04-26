@@ -1,33 +1,33 @@
 (function() {
-	var plugin = function( $ ) {
-		var warning = $( ".cookie-consent" ),
-			button = $( "button.close", warning );
+    var plugin = function( $ ) {
+        $( document ).ready( function() {
+            var warning = $( ".cookie-consent" ),
+                button = $( "button.close", warning );
 
-		warning.show();
+               console.log( "cookie consent" );
+            warning.show();
 
-		button.click (function() {
-			warning.hide();
+            button.click (function() {
+                warning.hide();
 
-			var expiry = new Date();
+                var expiry = new Date();
 
-			expiry.setTime(expiry.getTime() + (warning.data( "cookie-expiry" ) * 1000 * 60 * 60 * 24));
+                expiry.setTime(expiry.getTime() + (warning.data( "cookie-expiry" ) * 1000 * 60 * 60 * 24));
 
-			document.cookie = warning.data( "cookie-name" ) + "=1; expires=" + expiry.toGMTString();
-		});
-	};
+                document.cookie = warning.data( "cookie-name" ) + "=1; expires=" + expiry.toGMTString();
+            });
+        });
+    };
 
-	if ( typeof define === 'function' && define.amd ) {
-		define(
-			"cookie_consent",
-			[ "jquery" ],
-			function( $ ) {
-				return plugin( $ );
-			}
-		);
-
-		require([ "cookie_consent" ]);
-	} else {
-		plugin( jQuery );
-	}
+    if ( typeof define === 'function' && define.amd ) {
+        define(
+            "cookie_consent",
+            [ "jquery" ],
+            function( $ ) {
+                return plugin( $ );
+            }
+        );
+    } else {
+        plugin( jQuery );
+    }
 }());
-

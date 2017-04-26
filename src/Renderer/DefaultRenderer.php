@@ -9,7 +9,9 @@ class DefaultRenderer implements RendererInterface
 {
     use ContainerAwareTrait;
 
-    public function __construct(ContainerInterface $container)
+    public function __construct(
+
+        ContainerInterface $container)
     {
         $this->setContainer($container);
     }
@@ -17,6 +19,10 @@ class DefaultRenderer implements RendererInterface
     public function render(array $options = array())
     {
         if (!$this->isEnabled()) {
+            return '';
+        }
+
+        if ($this->getCurrentRequest()->cookies->has('uam_cookie_consent')) {
             return '';
         }
 
@@ -57,5 +63,12 @@ class DefaultRenderer implements RendererInterface
     protected function isEnabled()
     {
         return $this->container->getParameter('uam.cookie_consent.enabled');
+    }
+
+    protected function getCurrentRequest()
+    {
+        return $this->container
+            ->get('request_stack')
+            ->getCurrentRequest();
     }
 }
